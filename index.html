@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="inventory.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Inventory Management System</h1>
+    <p>Manage Products, Suppliers and Stock</p>
+  </header>
+
+  <nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#addProduct">Add Product</a>
+    <a href="#products">Products</a>
+    <a href="#categories">Categories</a>
+    <a href="#suppliers">Suppliers</a>
+    <a href="#reports">Reports</a>
+  </nav>
+
+  <main>
+    <section id="dashboard" class="dashboard">
+      <div class="card"><h3>Total Products</h3><p id="totalProducts">0</p></div>
+      <div class="card"><h3>Low Stock Items</h3><p id="lowStock">0</p></div>
+      <div class="card"><h3>Total Stock Units</h3><p id="totalStock">0</p></div>
+      <div class="card"><h3>Inventory Value</h3><p id="inventoryValue">₹0.00</p></div>
+    </section>
+
+    <section class="card" id="addProduct">
+      <h2>Add / Update Product</h2>
+      <form id="productForm">
+        <input type="hidden" id="productId">
+        <input id="productName" type="text" placeholder="Product Name" required>
+        <input id="category" type="text" placeholder="Category" required>
+        <input id="supplier" type="text" placeholder="Supplier Name">
+        <input id="quantity" type="number" placeholder="Quantity" min="0" required>
+        <input id="price" type="number" placeholder="Price" min="0" step="0.01" required>
+        <button type="submit">Save Product</button>
+        <button type="reset" id="clearButton" class="secondary-button">Clear Form</button>
+      </form>
+    </section>
+
+    <section class="card" id="products">
+      <h2>Product Details</h2>
+      <input id="searchBox" type="search" placeholder="Search product">
+      <button id="searchButton" type="button">Search</button>
+      <button id="showAllButton" type="button" class="secondary-button">Show All</button>
+      <button id="lowStockButton" type="button" class="secondary-button">Low Stock</button>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Product</th><th>Category</th><th>Supplier</th>
+              <th>Quantity</th><th>Price</th><th>Stock Value</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="categories">
+      <h2>Category Management</h2>
+      <p>Organize products by category.</p>
+      <ul>
+        <li>Electronics</li>
+        <li>Computer Accessories</li>
+        <li>Office Supplies</li>
+      </ul>
+    </section>
+
+    <section class="card" id="suppliers">
+      <h2>Supplier Management</h2>
+      <p>Maintain supplier details and product sources.</p>
+      <p>Supplier names can be entered while adding a product.</p>
+    </section>
+
+    <section class="card" id="reports">
+      <h2>Inventory Reports</h2>
+      <p>Export the current product list as a CSV report.</p>
+      <button id="exportButton" type="button">Export Product Report</button>
+    </section>
+  </main>
+
+  <footer><p>Inventory Management System &copy; 2026</p></footer>
+</body>
+</html>
